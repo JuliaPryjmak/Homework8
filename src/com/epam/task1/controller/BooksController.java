@@ -37,11 +37,19 @@ public class BooksController {
 
         viewBooks.print(("\nEnter percent -> "));
         books.reduceByPercent(InputUtility.inputInt());
+        viewBooks.print(books.viewBooks());
 
 
-        Scanner scanner = new Scanner(System.in);
+
+
         viewBooks.print(("\nEnter author -> "));
-        books.findBookByAuthor(scanner.nextLine());
+        List<Book> booksResult = books.searchBookByAuthor(InputUtility.inputLine());
+        booksResult.forEach(book -> viewBooks.print(book.view()));
+//        Scanner scanner = new Scanner(System.in);
+//        viewBooks.print(("\nEnter author -> "));
+//        List<Book> booksResult = books.searchBookByAuthor(scanner.nextLine());
+//        booksResult.forEach(book -> viewBooks.print(book.view()));
+//        view.printMessage(BookView.ENTER_BOOK);
 
 //    model2.reduceByPercent(12);
 
