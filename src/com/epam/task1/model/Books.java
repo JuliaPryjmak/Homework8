@@ -44,14 +44,13 @@ public class Books {
     }
 
     public String findBookByAuthor(String author) {
-        StringBuilder books = new StringBuilder();
+        String books = "";
         for(int i=0; i<count; i++) {
             if(library[i].getAuthorBook().equalsIgnoreCase(author)) {
-                books.append(library[i].view());
-                books.append("\n");
+                books += library[i].view() + "\n";
             }
         }
-        return books.toString();
+        return books;
     }
 }
 
