@@ -18,18 +18,17 @@ public class BooksController {
 //    }
 
 
-
-    public void run(){
+    public void run() {
         viewBooks.print("Enter size -> ");
         books = new Books(InputUtility.inputInt());
 //        Book book1 = new Book(InputUtility.inputInt(), InputUtility.inputLine(),InputUtility.inputLine(),InputUtility.inputLine(),
 //                InputUtility.inputInt(), InputUtility.inputInt(),InputUtility.inputInt());
-      //  Book book1 = new Book(1,"ter", "erere", "tytytyty" , 1234,345,444);
+        //  Book book1 = new Book(1,"ter", "erere", "tytytyty" , 1234,345,444);
 
-        System.out.println(books.addBook(new Book(1,"Advanture Pinguin", "Filuk",
-                "Publish ABALAHAMA", 1978, 540, 350)));
-        System.out.println(books.addBook(new Book(2,"Advanture Pinguin", "Filuk",
-                "Publish ABALAHAMA", 1978, 540, 350)));
+        books.addBook(new Book(1, "Advanture Pinguin", "Filuk",
+                "Publish ABALAHAMA", 1978, 540, 350));
+        books.addBook(new Book(2, "Advanture Pinguin", "Filuk",
+                "Publish ABALAHAMA", 1978, 540, 350));
         viewBooks.print((books.viewBooks()));
 
 
@@ -37,7 +36,7 @@ public class BooksController {
         books.reduceByPercent(InputUtility.inputInt());
         viewBooks.print(books.viewBooks());
 
-        Books nBooks = books.searchBookByAuthor( InputUtility.inputLine());
+        Books nBooks = books.searchBookByAuthor(InputUtility.inputLine());
         viewBooks.print(nBooks.viewBooks());
 //        view.printMessage(BookView.ENTER_BOOK);
 

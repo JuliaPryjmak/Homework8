@@ -1,5 +1,7 @@
 package com.epam.task1.model;
 
+import java.util.List;
+
 public class Books {
 
     public static Book[] library;
@@ -7,24 +9,17 @@ public class Books {
 
 
     public Books(int arraiSize) {
-        this.library = new Book[arraiSize];
+        library = new Book[arraiSize];
     }
 
 
     public boolean addBook(Book book) {
-//        if (count >= library.length -1) {
-//            return false;
-//        } else {
-            for (int i = 0; i < count; i++) {
-                System.out.println(library[i]);
-            }
-
-            library[++count] = book;
-            for (int i = 0; i < count; i++) {
-                System.out.println(library[i]);
-            }
-
+        if (count == library.length){
+            return false;
+        }else {
+            library[count++] = book;
             return  true;
+        }
 
     }
 
@@ -35,7 +30,6 @@ public class Books {
         String books = "";
 
         for (int i = 0; i < count; i++) {
-         //   System.out.println(library[i]);
             books += library[i].view();
             books += "\n";
         }
