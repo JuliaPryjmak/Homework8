@@ -7,6 +7,8 @@ import com.epam.task1.view.BookView;
 import java.util.List;
 import java.util.Scanner;
 
+import static com.epam.task1.controller.InputUtility.*;
+
 
 public class BooksController {
 
@@ -23,7 +25,7 @@ public class BooksController {
 
     public void run() {
         viewBooks.print("Enter size -> ");
-        books = new Books(InputUtility.inputInt());
+        books = new Books(inputInt());
 //        Book book1 = new Book(InputUtility.inputInt(), InputUtility.inputLine(),InputUtility.inputLine(),InputUtility.inputLine(),
 //                InputUtility.inputInt(), InputUtility.inputInt(),InputUtility.inputInt());
         //  Book book1 = new Book(1,"ter", "erere", "tytytyty" , 1234,345,444);
@@ -36,14 +38,13 @@ public class BooksController {
 
 
         viewBooks.print(("\nEnter percent -> "));
-        books.reduceByPercent(InputUtility.inputInt());
+        books.reduceByPercent(inputInt());
         viewBooks.print((books.viewBooks()));
 
         Scanner scanner = new Scanner(System.in);
         viewBooks.print(("\nEnter author -> "));
-        books.findBookByAuthor(scanner.nextLine());
+        books.findBookByAuthor(inputLine());
 
-//    model2.reduceByPercent(12);
 
     }
 }
