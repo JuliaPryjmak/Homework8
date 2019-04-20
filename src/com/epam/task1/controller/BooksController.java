@@ -43,7 +43,5 @@ public class BooksController {
         viewBooks.print(("\nEnter author -> "));
         String bookByAuthor = books.findBookByAuthor(inputLine());
         viewBooks.print(bookByAuthor);
-
-
     }
 }
