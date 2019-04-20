@@ -43,12 +43,15 @@ public class Books {
         }
     }
 
-    public void findBookByAuthor(String author) {
+    public String findBookByAuthor(String author) {
+        StringBuilder books = new StringBuilder();
         for(int i=0; i<count; i++) {
             if(library[i].getAuthorBook().equalsIgnoreCase(author)) {
-                System.out.println(library[i].view());
+                books.append(library[i].view());
+                books.append("\n");
             }
         }
+        return books.toString();
     }
 }
 

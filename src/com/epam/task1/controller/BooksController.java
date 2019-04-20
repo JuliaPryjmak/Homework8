@@ -4,8 +4,7 @@ import com.epam.task1.model.Book;
 import com.epam.task1.model.Books;
 import com.epam.task1.view.BookView;
 
-import java.util.List;
-import java.util.Scanner;
+
 
 import static com.epam.task1.controller.InputUtility.*;
 
@@ -42,7 +41,8 @@ public class BooksController {
         viewBooks.print((books.viewBooks()));
 
         viewBooks.print(("\nEnter author -> "));
-        books.findBookByAuthor(inputLine());
+        String bookByAuthor = books.findBookByAuthor(inputLine());
+        viewBooks.print(bookByAuthor);
 
 
     }
