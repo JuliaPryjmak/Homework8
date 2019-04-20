@@ -44,7 +44,6 @@ public class Books {
     }
 
     public void findBookByAuthor(String author) {
-
         for(int i=0; i<count; i++) {
             if(library[i].getAuthorBook().equalsIgnoreCase(author)) {
                 System.out.println(library[i].view());
