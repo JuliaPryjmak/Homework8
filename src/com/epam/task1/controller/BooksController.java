@@ -4,6 +4,9 @@ import com.epam.task1.model.Book;
 import com.epam.task1.model.Books;
 import com.epam.task1.view.BookView;
 
+import java.util.List;
+import java.util.Scanner;
+
 
 public class BooksController {
 
@@ -25,7 +28,7 @@ public class BooksController {
 //                InputUtility.inputInt(), InputUtility.inputInt(),InputUtility.inputInt());
         //  Book book1 = new Book(1,"ter", "erere", "tytytyty" , 1234,345,444);
 
-        books.addBook(new Book(1, "Advanture Pinguin", "Filuk",
+        books.addBook(new Book(1, "Advanture Pinguin", "Pryjmak",
                 "Publish ABALAHAMA", 1978, 540, 350));
         books.addBook(new Book(2, "Advanture Pinguin", "Filuk",
                 "Publish ABALAHAMA", 1978, 540, 350));
@@ -36,8 +39,10 @@ public class BooksController {
         books.reduceByPercent(InputUtility.inputInt());
         viewBooks.print(books.viewBooks());
 
-        Books nBooks = books.searchBookByAuthor(InputUtility.inputLine());
-        viewBooks.print(nBooks.viewBooks());
+        Scanner scanner = new Scanner(System.in);
+        viewBooks.print(("\nEnter author -> "));
+        List<Book> booksResult = books.searchBookByAuthor(scanner.nextLine());
+        booksResult.forEach(book -> viewBooks.print(book.view()));
 //        view.printMessage(BookView.ENTER_BOOK);
 
 //    model2.reduceByPercent(12);
