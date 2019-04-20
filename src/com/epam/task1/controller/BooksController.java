@@ -41,7 +41,6 @@ public class BooksController {
         books.reduceByPercent(inputInt());
         viewBooks.print((books.viewBooks()));
 
-        Scanner scanner = new Scanner(System.in);
         viewBooks.print(("\nEnter author -> "));
         books.findBookByAuthor(inputLine());
 
