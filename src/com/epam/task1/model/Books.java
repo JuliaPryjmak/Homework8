@@ -48,6 +48,7 @@ public class Books {
         for(int i=0; i<count; i++) {
             if(library[i].getAuthorBook().equalsIgnoreCase(author)) {
                 books.append(library[i].view());
+                books.append("\n");
             }
         }
         return books.toString();
