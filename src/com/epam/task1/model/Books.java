@@ -1,7 +1,6 @@
 package com.epam.task1.model;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Books {
 
@@ -43,14 +42,14 @@ public class Books {
             library[i].changePrice(percent);
         }
     }
-    public List<Book> searchBookByAuthor(String wordAuthor) {
-       List<Book> searchBook = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            if (library[i].getAuthorBook().equalsIgnoreCase(wordAuthor)){
-                searchBook.add(library[i]);
+
+    public void findBookByAuthor(String author) {
+
+        for(int i=0; i<count; i++) {
+            if(library[i].getAuthorBook().equalsIgnoreCase(author)) {
+                System.out.println(library[i].view());
             }
-    }
-        return searchBook;
+        }
     }
 }
 
