@@ -5,7 +5,6 @@ import com.epam.task1.Validator;
 import static com.epam.task1.Validator.*;
 
 public class Book {
-  //  private static int nextID = 1;
     private int idBook;
     private String nameBook;
     private String authorBook;
@@ -17,23 +16,20 @@ public class Book {
     public Book(int idBook, String nameBook, String authorBook, String publishingOffice,
                 int yearOfPublishing, int numberOfPages, float price) throws Validator {
         this.idBook = checkIdOfBook(idBook);
-        this.nameBook = checkNameOfBook(nameBook);
-        this.authorBook = authorBook;
-        this.publishingOffice = publishingOffice;
+        this.nameBook = checkName(nameBook);
+        this.authorBook = checkName(authorBook);
+        this.publishingOffice = checkName(publishingOffice);
         this.yearOfPublishing = checkYearOfPublishing(yearOfPublishing);
         this.numberOfPages = checkNumberOfPages(numberOfPages);
-        this.price = price;
+        this.price = checkPrice(price);
     }
-//   // public Book(Book book1){
-//        this.idBook = nextID++;
-//    }
 
     public int getIdBook() {
         return idBook;
     }
 
     public void setIdBook(int idBook) {
-        this.idBook = idBook;
+        this.idBook = checkIdOfBook(idBook);
     }
 
     public String getNameBook() {
@@ -41,7 +37,7 @@ public class Book {
     }
 
     public void setNameBook(String nameBook) {
-        this.nameBook = nameBook;
+        this.nameBook = checkName(nameBook);
     }
 
     public String getAuthorBook() {
@@ -49,7 +45,7 @@ public class Book {
     }
 
     public void setAuthorBook(String authorBook) {
-        this.authorBook = authorBook;
+        this.authorBook = checkName(authorBook);
     }
 
     public String getPublishingOffice() {
@@ -57,7 +53,7 @@ public class Book {
     }
 
     public void setPublishingOffice(String publishingOffice) {
-        this.publishingOffice = publishingOffice;
+        this.publishingOffice = checkName(publishingOffice);
     }
 
     public int getYearOfPublishing() {
@@ -65,7 +61,7 @@ public class Book {
     }
 
     public void setYearOfPublishing(int yearOfPublishing) {
-        this.yearOfPublishing = yearOfPublishing;
+        this.yearOfPublishing = checkYearOfPublishing(yearOfPublishing);
     }
 
     public int getNumberOfPages() {
@@ -73,7 +69,7 @@ public class Book {
     }
 
     public void setNumberOfPages(int numberOfPages) {
-        this.numberOfPages = numberOfPages;
+        this.numberOfPages = checkNumberOfPages(numberOfPages);
     }
 
     public float getPrice() {
@@ -81,7 +77,7 @@ public class Book {
     }
 
     public void setPrice(int price) {
-        this.price = price;
+        this.price = checkPrice(price);
     }
 
 
@@ -98,8 +94,8 @@ public class Book {
     }
 
 
-    public void changePrice (double percent){
-        this.price = (float) (price + price * percent /100);
+    public void changePrice(double percent) {
+        this.price = (float) (price + price * percent / 100);
     }
 
 

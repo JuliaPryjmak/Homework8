@@ -1,14 +1,12 @@
 package com.epam.task1.model;
 
 
-import com.epam.task1.Validator;
-import com.sun.xml.internal.ws.client.BindingProviderProperties;
-
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Scanner;
 
-import static com.epam.task1.Validator.checkID;
+
+import static com.epam.task1.Validator.check;
+import static com.epam.task1.Validator.checkName;
 
 public class Books {
 
@@ -16,23 +14,23 @@ public class Books {
     private int count = 0;
 
 
-    public Books(int arraiSize){
-        int i = checkID(arraiSize);
-            library = new Book[i];
+    public Books(int arraiSize) {
+        int i = check(arraiSize);
+        library = new Book[i];
     }
 
     public boolean addBook(Book book) {
-        if (count == library.length){
+        if (count == library.length) {
             return false;
-        }else {
+        } else {
             library[count++] = book;
-            return  true;
+            return true;
         }
 
     }
 
     public String viewBooks() {
-        if (count == 0){
+        if (count == 0) {
             return "No books!";
         }
         String books = "";
@@ -43,6 +41,7 @@ public class Books {
         }
         return books;
     }
+
     private String viewLibrary(Book[] array, int size) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < size; i++) {
@@ -52,44 +51,51 @@ public class Books {
     }
 
     public void reduceByPercent(int percent) {
-        System.out.println("Change price by: " + percent + "%");
+        int newPercent = check(percent);
+        System.out.println("Change price by: " + newPercent + "%");
         for (int i = 0; i < count; i++) {
-            library[i].changePrice(percent);
+            library[i].changePrice(newPercent);
         }
     }
 
     public String findBookByAuthor(String author) {
+        String newAuthor = checkName(author);
         String books = "";
-        for(int i=0; i<count; i++) {
-            if(library[i].getAuthorBook().equalsIgnoreCase(author)) {
+        for (int i = 0; i < count; i++) {
+            if (library[i].getAuthorBook().equalsIgnoreCase(newAuthor)) {
                 books += library[i].toString() + "\n";
+            } else {
+                System.out.println("No books");
+                break;
             }
         }
         return books;
     }
-    public String sortByNameAuthor(){
+
+    public String sortByNameAuthor() {
         Book[] newLibrary = Arrays.copyOf(library, count);
         Arrays.sort(newLibrary, new Comparator<Book>() {
             @Override
             public int compare(Book o1, Book o2) {
-                return( o1.getAuthorBook().compareTo(o2.getAuthorBook()));
+                return (o1.getAuthorBook().compareTo(o2.getAuthorBook()));
             }
         });
-        return  viewLibrary(newLibrary, newLibrary.length);
+        return viewLibrary(newLibrary, newLibrary.length);
     }
 
-        public String sortByPublishOffice() {
-            Book[] newLibrary = Arrays.copyOf(library, count);
-            Arrays.sort(newLibrary, new Comparator<Book>() {
-                @Override
-                public int compare(Book o1, Book o2) {
-                    return o1.getPublishingOffice().compareTo(o2.getPublishingOffice());
-                }
-            });
-    return  viewLibrary(newLibrary, newLibrary.length);
+    public String sortByPublishOffice() {
+        Book[] newLibrary = Arrays.copyOf(library, count);
+        Arrays.sort(newLibrary, new Comparator<Book>() {
+            @Override
+            public int compare(Book o1, Book o2) {
+                return o1.getPublishingOffice().compareTo(o2.getPublishingOffice());
+            }
+        });
+        return viewLibrary(newLibrary, newLibrary.length);
     }
-    public String sortByPrice(){
-        Book[] newLibrary = Arrays.copyOf(library,count);
+
+    public String sortByPrice() {
+        Book[] newLibrary = Arrays.copyOf(library, count);
         Arrays.sort(newLibrary, new Comparator<Book>() {
             @Override
             public int compare(Book o1, Book o2) {
@@ -99,7 +105,7 @@ public class Books {
 
             }
         });
-        return  viewLibrary(newLibrary, newLibrary.length);
+        return viewLibrary(newLibrary, newLibrary.length);
     }
 
 

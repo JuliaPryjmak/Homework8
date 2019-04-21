@@ -6,10 +6,7 @@ import com.epam.task1.model.Books;
 import com.epam.task1.view.BookView;
 
 
-
 import static com.epam.task1.controller.InputUtilityХ.*;
-//import static com.epam.task1.controller.InputUtilityХ.inputInt;
-//import static com.epam.task1.controller.InputUtilityХ.inputLine;
 
 
 public class BooksController {
@@ -17,7 +14,6 @@ public class BooksController {
     private Books books;
     private Book model;
     private BookView viewBooks = new BookView();
-
 
 
     public void run() throws Validator {
@@ -31,12 +27,7 @@ public class BooksController {
                 "BPublish ABALAHAMA", 1978, 540, 850));
         books.addBook(new Book(2, "Mdvanture Pinguin", "Ciluk",
                 "SPublish ABALAHAMA", 1978, 540, 650));
-//        books.addBook(new Book(2, "Advanture Pinguin", "Filuk",
-//                "Publish ABALAHAMA", 1978, 540, 350));
-//        viewBooks.print((books.viewBooks()));
 
-        books.addBook(new Book(2, "Advanture Pinguin", "Filuk",
-                "Publish ABALAHAMA", 1978, 540, 350));
         viewBooks.print((books.viewBooks()));
 
         System.out.println("Sort by author of book:\n " + books.sortByNameAuthor());
