@@ -1,6 +1,14 @@
 package com.epam.task1.model;
 
 
+import com.epam.task1.Validator;
+import com.sun.xml.internal.ws.client.BindingProviderProperties;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Scanner;
+
+import static com.epam.task1.Validator.checkID;
 
 public class Books {
 
@@ -8,10 +16,14 @@ public class Books {
     private int count = 0;
 
 
-    public Books(int arraiSize) {
-        library = new Book[arraiSize];
+    public Books(int arraiSize){
+        checkID(arraiSize);
+            library = new Book[arraiSize];
+//        } else {
+//            System.out.println("Repeat enter please");
+//
+//        }
     }
-
 
     public boolean addBook(Book book) {
         if (count == library.length){
@@ -30,10 +42,17 @@ public class Books {
         String books = "";
 
         for (int i = 0; i < count; i++) {
-            books += library[i].view();
+            books += library[i].toString();
             books += "\n";
         }
         return books;
+    }
+    private String viewLibrary(Book[] array, int size) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < size; i++) {
+            result.append(array[i] + "\n");
+        }
+        return result.toString();
     }
 
     public void reduceByPercent(int percent) {
@@ -47,11 +66,47 @@ public class Books {
         String books = "";
         for(int i=0; i<count; i++) {
             if(library[i].getAuthorBook().equalsIgnoreCase(author)) {
-                books += library[i].view() + "\n";
+                books += library[i].toString() + "\n";
             }
         }
         return books;
     }
+    public String sortByNameAuthor(){
+        Book[] newLibrary = Arrays.copyOf(library, count);
+        Arrays.sort(newLibrary, new Comparator<Book>() {
+            @Override
+            public int compare(Book o1, Book o2) {
+                return( o1.getAuthorBook().compareTo(o2.getAuthorBook()));
+            }
+        });
+        return  viewLibrary(newLibrary, newLibrary.length);
+    }
+
+        public String sortByPublishOffice() {
+            Book[] newLibrary = Arrays.copyOf(library, count);
+            Arrays.sort(newLibrary, new Comparator<Book>() {
+                @Override
+                public int compare(Book o1, Book o2) {
+                    return o1.getPublishingOffice().compareTo(o2.getPublishingOffice());
+                }
+            });
+    return  viewLibrary(newLibrary, newLibrary.length);
+    }
+    public String sortByPrice(){
+        Book[] newLibrary = Arrays.copyOf(library,count);
+        Arrays.sort(newLibrary, new Comparator<Book>() {
+            @Override
+            public int compare(Book o1, Book o2) {
+                if (o1.getPrice() > o2.getPrice()) return -1;
+                if (o1.getPrice() < o2.getPrice()) return 1;
+                return 0;
+
+            }
+        });
+        return  viewLibrary(newLibrary, newLibrary.length);
+    }
+
+
 }
 
 //            Book x = massive[i];
@@ -92,7 +147,7 @@ public class Books {
 //               year = sc.nextInt();
 //
 //            if (year > 0) {
-//                Books list = new Books(count);
+//                Books list = newб Books(count);
 //                for (int i = 0; i < count; i++) {
 //                    if (massive[i].getYearOfPublishing().equals(year)) ;
 //                    list.addBook(massive[i]);

@@ -1,5 +1,7 @@
 package com.epam.task1.model;
 
+import com.epam.task1.Validator;
+
 public class Book {
   //  private static int nextID = 1;
     private int idBook;
@@ -11,12 +13,18 @@ public class Book {
     private float price;
 
     public Book(int idBook, String nameBook, String authorBook, String publishingOffice,
-                int yearOfPublishing, int numberOfPages, float price) {
+                int yearOfPublishing, int numberOfPages, float price) throws Validator {
+//        if (idBook <= 0 || yearOfPublishing > 1970 || yearOfPublishing <= 2019 || numberOfPages <= 0){
+//            throw new Validator();
+//        }
         this.idBook = idBook;
         this.nameBook = nameBook;
         this.authorBook = authorBook;
         this.publishingOffice = publishingOffice;
         this.yearOfPublishing = yearOfPublishing;
+//        if (yearOfPublishing < 1970 || yearOfPublishing >= 2019) {
+//            throw new Validator();
+//        }
         this.numberOfPages = numberOfPages;
         this.price = price;
     }
@@ -80,11 +88,19 @@ public class Book {
         this.price = price;
     }
 
-    public String view(){
-        return "ID: " + idBook + "; Name Of Book: " + nameBook + "; Author of Book: " + authorBook
-                + "; Publishing Office: " + publishingOffice + "; Year of publishing: " + yearOfPublishing
-                + "; Number of Pages: " + numberOfPages + "; Price: " + price ;
+
+    @Override
+    public String toString() {
+        return "Book: " +
+                "idBook=" + idBook +
+                ", nameBook='" + nameBook + '\'' +
+                ", authorBook='" + authorBook + '\'' +
+                ", publishingOffice='" + publishingOffice + '\'' +
+                ", yearOfPublishing=" + yearOfPublishing +
+                ", numberOfPages=" + numberOfPages +
+                ", price=" + price;
     }
+
 
     public void changePrice (double percent){
         this.price = (float) (price + price * percent /100);

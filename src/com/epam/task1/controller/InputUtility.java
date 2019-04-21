@@ -4,15 +4,17 @@ package com.epam.task1.controller;
 
 import java.util.Scanner;
 
-public class InputUtility {
+class InputUtilityХ {
+    private static Scanner sc = new Scanner(System.in);
 
     public static String inputLine() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        return sc.nextLine();
     }
 
     public static int inputInt() {
-        Scanner sc = new Scanner(System.in);
         return sc.nextInt();
+
+
     }
+
 }
