@@ -2,6 +2,8 @@ package com.epam.task1.model;
 
 import com.epam.task1.Validator;
 
+import static com.epam.task1.Validator.*;
+
 public class Book {
   //  private static int nextID = 1;
     private int idBook;
@@ -14,18 +16,12 @@ public class Book {
 
     public Book(int idBook, String nameBook, String authorBook, String publishingOffice,
                 int yearOfPublishing, int numberOfPages, float price) throws Validator {
-//        if (idBook <= 0 || yearOfPublishing > 1970 || yearOfPublishing <= 2019 || numberOfPages <= 0){
-//            throw new Validator();
-//        }
-        this.idBook = idBook;
-        this.nameBook = nameBook;
+        this.idBook = checkIdOfBook(idBook);
+        this.nameBook = checkNameOfBook(nameBook);
         this.authorBook = authorBook;
         this.publishingOffice = publishingOffice;
-        this.yearOfPublishing = yearOfPublishing;
-//        if (yearOfPublishing < 1970 || yearOfPublishing >= 2019) {
-//            throw new Validator();
-//        }
-        this.numberOfPages = numberOfPages;
+        this.yearOfPublishing = checkYearOfPublishing(yearOfPublishing);
+        this.numberOfPages = checkNumberOfPages(numberOfPages);
         this.price = price;
     }
 //   // public Book(Book book1){

@@ -7,9 +7,9 @@ import com.epam.task1.view.BookView;
 
 
 
-
-import static com.epam.task1.controller.InputUtilityХ.inputInt;
-import static com.epam.task1.controller.InputUtilityХ.inputLine;
+import static com.epam.task1.controller.InputUtilityХ.*;
+//import static com.epam.task1.controller.InputUtilityХ.inputInt;
+//import static com.epam.task1.controller.InputUtilityХ.inputLine;
 
 
 public class BooksController {
@@ -23,10 +23,8 @@ public class BooksController {
     public void run() throws Validator {
         viewBooks.print("Enter size -> ");
         books = new Books(inputInt());
-//        Book book1 = new Book(InputUtility.inputInt(), InputUtility.inputLine(),InputUtility.inputLine(),InputUtility.inputLine(),
-//                InputUtility.inputInt(), InputUtility.inputInt(),InputUtility.inputInt());
-        //  Book book1 = new Book(1,"ter", "erere", "tytytyty" , 1234,345,444);
 
+        books.addBook(new Book(inputID(), inputNameOfBook(), inputAuthorOfBook(), inputPublishingOffice(), inputYearOfPublishing(), inputNumberOfPages(), inputPrice()));
         books.addBook(new Book(1, "Advanture Pinguin", "Yryjmak",
                 "Publish ABALAHAMA", 1978, 540, 350));
         books.addBook(new Book(2, "Sdvanture Pinguin", "Wiluk",
@@ -36,7 +34,7 @@ public class BooksController {
 //        books.addBook(new Book(2, "Advanture Pinguin", "Filuk",
 //                "Publish ABALAHAMA", 1978, 540, 350));
 //        viewBooks.print((books.viewBooks()));
-//        books.addBook(new Book(inputInt(), inputLine(), inputLine(), inputLine(), inputInt(), inputInt(), inputInt()));
+
         books.addBook(new Book(2, "Advanture Pinguin", "Filuk",
                 "Publish ABALAHAMA", 1978, 540, 350));
         viewBooks.print((books.viewBooks()));

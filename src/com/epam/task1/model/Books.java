@@ -17,12 +17,8 @@ public class Books {
 
 
     public Books(int arraiSize){
-        checkID(arraiSize);
-            library = new Book[arraiSize];
-//        } else {
-//            System.out.println("Repeat enter please");
-//
-//        }
+        int i = checkID(arraiSize);
+            library = new Book[i];
     }
 
     public boolean addBook(Book book) {
@@ -109,67 +105,6 @@ public class Books {
 
 }
 
-//            Book x = massive[i];
-//            int price = x.getPrice();
-//            int newPercent = (int) (0.01 * persent * price);
-//            x.setPrice(price - newPercent);
-//        }
-//    }
-
-
-//    static Book[] reduceByPercent(Book[] massive) {
-//        System.out.println("Введите процент: ");
-//        Scanner sc = new Scanner(System.in);
-//        int percent = sc.nextInt();
-//        for (int i = 0; i < count; i++) {
-//            Book x = massive[i];
-//            int price = x.getPrice();
-//            int newPercent = (int) (0.01 * percent * price);
-//            x.setPrice(price - newPercent);
-//        }
-//        return massive;
-//    }
-
-
-           //Book x = massive[i];
-           // String author = x.getAuthorBook();
-//            if (author.equals(wordAuthor)) {
-//                x.view();
-//            if (massive[i].getAuthorBook().equals(wordAuthor)){
-//
-//            }
-//        }
-
-//
-//    static public Book searchBookByYear( int year) {
-////            System.out.println("Введите автора: ");
-//           Scanner sc = new Scanner(System.in);
-//               year = sc.nextInt();
-//
-//            if (year > 0) {
-//                Books list = newб Books(count);
-//                for (int i = 0; i < count; i++) {
-//                    if (massive[i].getYearOfPublishing().equals(year)) ;
-//                    list.addBook(massive[i]);
-//                }
-//                return list;
-//            } else {
-//                return new Books(0);
-//
-//            }
-//
-//        }
-
-
-//        for (int i = 0; i < count; i++) {
-//            Book x = massive[i];
-//            int yearOfPublishing = x.getYearOfPublishing();
-//            if (newYear < yearOfPublishing) {
-//                x.view();
-//            }
-//        }
-//        return massive[0];
-//    }
 
 
 
